@@ -191,19 +191,21 @@ import Layout from '../layouts/Layout.astro';
 
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
 				{[
-					{ alt: "Interior cálido del salón con iluminación natural", bg: "from-terracota/15 via-dorado/10 to-arena" },
-					{ alt: "Estación de trabajo con espejo iluminado", bg: "from-oliva/15 via-arena to-crema" },
-					{ alt: "Productos profesionales organizados", bg: "from-dorado/15 via-terracota/10 to-crema" },
-					{ alt: "Espacio de espera acogedor con plantas", bg: "from-arena via-oliva/10 to-crema-dark" },
+					{ alt: "Interior cálido del salón con iluminación natural", src: "https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80" },
+					{ alt: "Estación de trabajo con espejo iluminado", src: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80" },
+					{ alt: "Productos profesionales organizados", src: "https://images.unsplash.com/photo-1457972729786-0411a3b2b626?w=800&q=80" },
+					{ alt: "Espacio de espera acogedor con plantas", src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=800&q=80" },
 				].map((img, i) => (
-					<div class={`fade-up fade-up-delay-${i + 1} gallery-img aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${img.bg} border border-arena/50 flex items-end p-4`}>
-						<div class="bg-white/60 backdrop-blur-sm rounded-lg px-3 py-2">
-							<p class="font-body text-xs text-cafe-light/70">{img.alt}</p>
+					<div class={`fade-up fade-up-delay-${i + 1} gallery-img aspect-[3/4] rounded-2xl overflow-hidden border border-arena/50 relative`}>
+						<img src={img.src} alt={img.alt} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+						<div class="absolute inset-0 flex items-end p-4">
+							<div class="bg-white/60 backdrop-blur-sm rounded-lg px-3 py-2">
+								<p class="font-body text-xs text-cafe-light/70">{img.alt}</p>
+							</div>
 						</div>
 					</div>
 				))}
 			</div>
-			<p class="text-center mt-8 font-serif text-sm text-cafe-light/50 italic fade-up">Agrega tus fotos reales del salón reemplazando estos placeholders</p>
 		</div>
 	</section>
 
@@ -300,6 +302,9 @@ import Layout from '../layouts/Layout.astro';
 			<div class="mt-6 pt-6 border-t border-white/10">
 				<p class="font-body text-xs text-white/30">&copy; {new Date().getFullYear()} Estética Molvi. Todos los derechos reservados.</p>
 			</div>
+		</div>
+		<div class="text-center py-4">
+			<p class="text-sm text-gray-400">Desarrollado por <a href="https://aspectocreativo.mx" target="_blank" rel="noopener noreferrer" class="hover:text-gray-300 underline">aspectocreativo.mx</a></p>
 		</div>
 	</footer>
 
