@@ -1,0 +1,234 @@
+@import "tailwindcss";
+
+/* ─── Theme ─── */
+@theme {
+  --color-crema: #FDF6EE;
+  --color-crema-dark: #F5EBDD;
+  --color-terracota: #C4704B;
+  --color-terracota-light: #D4886A;
+  --color-terracota-dark: #A85A38;
+  --color-oliva: #6B7C5E;
+  --color-oliva-light: #8A9E7A;
+  --color-oliva-dark: #4F5D45;
+  --color-cafe: #4A3728;
+  --color-cafe-light: #6B5544;
+  --color-arena: #E8DDD0;
+  --color-dorado: #C9A96E;
+  --color-dorado-light: #DDBF8A;
+
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "DM Sans", "Helvetica Neue", sans-serif;
+  --font-serif: "Lora", "Georgia", serif;
+}
+
+/* ─── Base ─── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-crema);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--color-terracota);
+    color: white;
+  }
+}
+
+/* ─── Linen texture background ─── */
+.bg-linen {
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* ─── Paper craft texture ─── */
+.bg-paper {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, rgba(196, 112, 75, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(107, 124, 94, 0.04) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, rgba(201, 169, 110, 0.03) 0%, transparent 50%);
+}
+
+/* ─── Scroll-triggered animations ─── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+.fade-up-delay-5 { transition-delay: 0.5s; }
+
+/* ─── Hero entrance animations ─── */
+@keyframes float-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-float-in {
+  animation: float-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+.animate-float-in-delay-1 { animation-delay: 0.15s; }
+.animate-float-in-delay-2 { animation-delay: 0.3s; }
+.animate-float-in-delay-3 { animation-delay: 0.5s; }
+.animate-float-in-delay-4 { animation-delay: 0.7s; }
+
+.animate-gentle-float {
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+/* ─── Decorative divider ─── */
+.divider-leaf {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.divider-leaf::before,
+.divider-leaf::after {
+  content: "";
+  flex: 1;
+  max-width: 100px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--color-terracota), transparent);
+  opacity: 0.3;
+}
+
+/* ─── Star rating ─── */
+.stars {
+  color: var(--color-dorado);
+  letter-spacing: 0.15em;
+}
+
+/* ─── WOW counter ─── */
+@keyframes count-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.wow-number {
+  background: linear-gradient(135deg, var(--color-terracota), var(--color-dorado), var(--color-terracota));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ─── WhatsApp float button ─── */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: #25D366;
+  animation: pulse-ring 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  z-index: -1;
+}
+
+/* ─── Gallery images ─── */
+.gallery-img {
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.6s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03) rotate(-0.5deg);
+  box-shadow: 0 20px 40px rgba(74, 55, 40, 0.15);
+}
+
+/* ─── Service card hover ─── */
+.service-card {
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(74, 55, 40, 0.1);
+}
+
+/* ─── CTA button ─── */
+.btn-cta {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(196, 112, 75, 0.35);
+}
+
+.btn-cta:hover::after {
+  transform: translateX(100%);
+}
+
+/* ─── Testimonial card ─── */
+.testimonial-card {
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: "\201C";
+  position: absolute;
+  top: -0.15em;
+  left: 0.1em;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--color-terracota);
+  opacity: 0.12;
+  pointer-events: none;
+}

@@ -1,0 +1,342 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+
+	<!-- ════════════════════════════════════════════════════════
+	     HERO
+	     ════════════════════════════════════════════════════════ -->
+	<section class="relative min-h-screen flex items-center justify-center bg-linen bg-paper overflow-hidden">
+		<!-- Decorative background circles -->
+		<div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-terracota/[0.04] blur-3xl"></div>
+		<div class="absolute bottom-[-15%] left-[-8%] w-[600px] h-[600px] rounded-full bg-oliva/[0.05] blur-3xl"></div>
+		<div class="absolute top-[40%] left-[60%] w-[300px] h-[300px] rounded-full bg-dorado/[0.04] blur-3xl"></div>
+
+		<div class="relative z-10 text-center px-6 py-20 max-w-3xl mx-auto">
+			<!-- Decorative top ornament -->
+			<div class="animate-float-in mb-6">
+				<svg class="mx-auto w-12 h-12 text-terracota/40" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1">
+					<path d="M24 4c-4 8-16 12-16 24a16 16 0 0 0 32 0C40 16 28 12 24 4z" />
+					<path d="M24 12c-2 5-8 7-8 15a8 8 0 0 0 16 0c0-8-6-10-8-15z" opacity="0.5" />
+				</svg>
+			</div>
+
+			<!-- Brand name -->
+			<h1 class="animate-float-in animate-float-in-delay-1 font-display text-6xl sm:text-7xl md:text-8xl font-medium italic text-cafe tracking-wide leading-tight">
+				Estética Molvi
+			</h1>
+
+			<!-- Subtitle -->
+			<p class="animate-float-in animate-float-in-delay-2 font-serif text-lg sm:text-xl text-cafe-light/80 mt-4 tracking-widest uppercase">
+				Donde cada clienta es especial&ensp;·&ensp;Guadalajara
+			</p>
+
+			<!-- Perfect rating badge -->
+			<div class="animate-float-in animate-float-in-delay-3 mt-10 inline-block">
+				<div class="animate-gentle-float bg-white/70 backdrop-blur-sm border border-dorado/30 rounded-2xl px-8 py-5 shadow-lg shadow-dorado/10">
+					<div class="stars text-2xl mb-1">★★★★★</div>
+					<p class="font-display text-xl sm:text-2xl font-semibold text-cafe">
+						5.0&ensp;·&ensp;75 reseñas
+					</p>
+					<p class="font-serif text-sm text-cafe-light/70 mt-1 italic">
+						Calificación perfecta — ningún cliente nos ha dado menos de 5 estrellas
+					</p>
+				</div>
+			</div>
+
+			<!-- CTA -->
+			<div class="animate-float-in animate-float-in-delay-4 mt-10">
+				<a href="https://wa.me/523334579006?text=Hola%2C%20quiero%20agendar%20en%20Est%C3%A9tica%20Molvi"
+				   class="btn-cta inline-flex items-center gap-3 bg-terracota text-white font-body font-semibold text-lg px-10 py-4 rounded-full">
+					<span>Agenda tu cita</span>
+					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+				</a>
+			</div>
+		</div>
+
+		<!-- Scroll indicator -->
+		<div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-gentle-float">
+			<svg class="w-6 h-6 text-cafe/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     SERVICIOS
+	     ════════════════════════════════════════════════════════ -->
+	<section id="servicios" class="py-24 sm:py-32 px-6 bg-crema-dark/50 bg-linen relative">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-16 fade-up">
+				<p class="font-body text-sm uppercase tracking-[0.3em] text-terracota mb-3">Lo que hacemos</p>
+				<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium italic text-cafe">Nuestros Servicios</h2>
+				<div class="divider-leaf mt-6">
+					<span class="text-terracota/50 text-xl">✿</span>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+				{[
+					{ icon: "✂", name: "Corte y Peinado", desc: "Estilo personalizado que realza tu belleza natural" },
+					{ icon: "🎨", name: "Coloración", desc: "Tintes, mechas y balayage con productos de primera" },
+					{ icon: "✨", name: "Alisados y Keratinas", desc: "Cabello liso, brillante y saludable por semanas" },
+					{ icon: "💆", name: "Tratamientos Capilares", desc: "Nutrición profunda para revitalizar tu cabello" },
+					{ icon: "💄", name: "Maquillaje", desc: "Para eventos, sesiones o tu día a día especial" },
+					{ icon: "💅", name: "Uñas", desc: "Manicure y pedicure con acabados impecables" },
+				].map((service, i) => (
+					<div class={`service-card fade-up fade-up-delay-${i % 3 + 1} bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-arena/60 text-center`}>
+						<span class="text-4xl mb-4 block">{service.icon}</span>
+						<h3 class="font-display text-2xl font-semibold text-cafe mb-2">{service.name}</h3>
+						<p class="font-body text-cafe-light/70 text-sm leading-relaxed">{service.desc}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     DATO IMPACTANTE (WOW SECTION)
+	     ════════════════════════════════════════════════════════ -->
+	<section class="py-28 sm:py-40 px-6 relative overflow-hidden bg-cafe text-white">
+		<!-- Warm overlay texture -->
+		<div class="absolute inset-0 bg-gradient-to-br from-cafe via-cafe-light/20 to-cafe opacity-90"></div>
+		<div class="absolute inset-0" style="background-image: radial-gradient(circle at 30% 50%, rgba(196,112,75,0.15) 0%, transparent 60%), radial-gradient(circle at 70% 30%, rgba(201,169,110,0.1) 0%, transparent 50%);"></div>
+
+		<!-- Decorative stars scattered -->
+		<div class="absolute top-10 left-[15%] text-dorado/10 text-6xl animate-gentle-float" style="animation-delay: 0.5s;">★</div>
+		<div class="absolute bottom-16 right-[20%] text-dorado/10 text-4xl animate-gentle-float" style="animation-delay: 1.2s;">★</div>
+		<div class="absolute top-[30%] right-[10%] text-dorado/10 text-5xl animate-gentle-float" style="animation-delay: 0.8s;">★</div>
+
+		<div class="relative z-10 max-w-4xl mx-auto text-center">
+			<div class="fade-up">
+				<p class="font-body text-sm uppercase tracking-[0.3em] text-dorado-light/70 mb-8">El dato que lo dice todo</p>
+			</div>
+
+			<div class="fade-up fade-up-delay-1">
+				<p class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
+					<span class="wow-number" id="wow-counter">75</span>
+					<span class="text-white/60 font-light"> clientas.</span>
+				</p>
+			</div>
+
+			<div class="fade-up fade-up-delay-2">
+				<p class="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mt-2 leading-tight">
+					<span class="wow-number">75</span>
+					<span class="text-white/60 font-light"> reseñas de </span>
+					<span class="text-dorado">5 estrellas.</span>
+				</p>
+			</div>
+
+			<div class="fade-up fade-up-delay-3">
+				<p class="font-display text-3xl sm:text-4xl md:text-5xl font-medium text-terracota-light mt-6 italic">
+					Cero excepciones.
+				</p>
+			</div>
+
+			<div class="fade-up fade-up-delay-4 mt-10">
+				<div class="stars text-3xl sm:text-4xl">★★★★★ ★★★★★ ★★★★★</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     TESTIMONIOS
+	     ════════════════════════════════════════════════════════ -->
+	<section id="testimonios" class="py-24 sm:py-32 px-6 bg-crema bg-paper relative">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-16 fade-up">
+				<p class="font-body text-sm uppercase tracking-[0.3em] text-terracota mb-3">Voces reales</p>
+				<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium italic text-cafe">Lo que dicen nuestras clientas</h2>
+				<div class="divider-leaf mt-6">
+					<span class="text-terracota/50 text-xl">✿</span>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{[
+					{ quote: "Llevo años viniendo y siempre salgo encantada. Molvi es mi lugar seguro de belleza.", author: "Teresa G." },
+					{ quote: "Atención de primera, siempre te escuchan y te aconsejan lo mejor para tu tipo de cabello.", author: "Carmen L." },
+					{ quote: "Encontré este salón por Google y ahora no lo cambio por nada. Se nota el cariño en cada servicio.", author: "Rocío M." },
+				].map((t, i) => (
+					<div class={`testimonial-card fade-up fade-up-delay-${i + 1} bg-white/70 backdrop-blur-sm rounded-2xl p-8 border border-arena/60`}>
+						<div class="stars text-lg mb-4">★★★★★</div>
+						<p class="font-serif text-lg text-cafe leading-relaxed italic mb-6">"{t.quote}"</p>
+						<div class="flex items-center gap-3">
+							<div class="w-10 h-10 rounded-full bg-gradient-to-br from-terracota/20 to-oliva/20 flex items-center justify-center">
+								<span class="font-display text-lg font-semibold text-terracota">{t.author[0]}</span>
+							</div>
+							<p class="font-body font-semibold text-cafe-light text-sm">{t.author}</p>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     GALERÍA
+	     ════════════════════════════════════════════════════════ -->
+	<section id="galeria" class="py-24 sm:py-32 px-6 bg-crema-dark/40 bg-linen">
+		<div class="max-w-6xl mx-auto">
+			<div class="text-center mb-16 fade-up">
+				<p class="font-body text-sm uppercase tracking-[0.3em] text-terracota mb-3">Nuestro espacio</p>
+				<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium italic text-cafe">Un lugar que se siente como casa</h2>
+				<div class="divider-leaf mt-6">
+					<span class="text-terracota/50 text-xl">✿</span>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+				{[
+					{ alt: "Interior cálido del salón con iluminación natural", bg: "from-terracota/15 via-dorado/10 to-arena" },
+					{ alt: "Estación de trabajo con espejo iluminado", bg: "from-oliva/15 via-arena to-crema" },
+					{ alt: "Productos profesionales organizados", bg: "from-dorado/15 via-terracota/10 to-crema" },
+					{ alt: "Espacio de espera acogedor con plantas", bg: "from-arena via-oliva/10 to-crema-dark" },
+				].map((img, i) => (
+					<div class={`fade-up fade-up-delay-${i + 1} gallery-img aspect-[3/4] rounded-2xl overflow-hidden bg-gradient-to-br ${img.bg} border border-arena/50 flex items-end p-4`}>
+						<div class="bg-white/60 backdrop-blur-sm rounded-lg px-3 py-2">
+							<p class="font-body text-xs text-cafe-light/70">{img.alt}</p>
+						</div>
+					</div>
+				))}
+			</div>
+			<p class="text-center mt-8 font-serif text-sm text-cafe-light/50 italic fade-up">Agrega tus fotos reales del salón reemplazando estos placeholders</p>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     CONTACTO
+	     ════════════════════════════════════════════════════════ -->
+	<section id="contacto" class="py-24 sm:py-32 px-6 bg-crema bg-paper relative">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-16 fade-up">
+				<p class="font-body text-sm uppercase tracking-[0.3em] text-terracota mb-3">Visítanos</p>
+				<h2 class="font-display text-4xl sm:text-5xl md:text-6xl font-medium italic text-cafe">Encuéntranos en Guadalajara</h2>
+				<div class="divider-leaf mt-6">
+					<span class="text-terracota/50 text-xl">✿</span>
+				</div>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+				<!-- Info -->
+				<div class="fade-up space-y-8">
+					<!-- Teléfono -->
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 rounded-xl bg-terracota/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-terracota" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+						</div>
+						<div>
+							<p class="font-display text-xl font-semibold text-cafe">Teléfono</p>
+							<a href="tel:+523334579006" class="font-body text-cafe-light hover:text-terracota transition-colors">+52 33 3457 9006</a>
+						</div>
+					</div>
+
+					<!-- Horario -->
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 rounded-xl bg-oliva/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-oliva" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+						</div>
+						<div>
+							<p class="font-display text-xl font-semibold text-cafe">Horario</p>
+							<p class="font-body text-cafe-light text-sm leading-relaxed">
+								Lunes a Viernes: 9:00 – 19:00<br>
+								Sábado: 9:00 – 17:00<br>
+								Domingo: Cerrado
+							</p>
+						</div>
+					</div>
+
+					<!-- Ubicación -->
+					<div class="flex items-start gap-4">
+						<div class="w-12 h-12 rounded-xl bg-dorado/10 flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5 text-dorado" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+						</div>
+						<div>
+							<p class="font-display text-xl font-semibold text-cafe">Ubicación</p>
+							<p class="font-body text-cafe-light text-sm">Guadalajara, Jalisco, México</p>
+						</div>
+					</div>
+
+					<!-- CTA -->
+					<a href="https://wa.me/523334579006?text=Hola%2C%20quiero%20agendar%20en%20Est%C3%A9tica%20Molvi"
+					   class="btn-cta inline-flex items-center gap-3 bg-terracota text-white font-body font-semibold px-8 py-3.5 rounded-full text-base mt-2">
+						<svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 0 1-5.39-1.582l-.386-.232-2.65.888.888-2.65-.232-.386A9.94 9.94 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+						<span>Escríbenos por WhatsApp</span>
+					</a>
+				</div>
+
+				<!-- Map -->
+				<div class="fade-up fade-up-delay-2">
+					<div class="rounded-2xl overflow-hidden border border-arena/60 shadow-lg shadow-cafe/5 aspect-[4/3]">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119293.52800578099!2d-103.44460019999999!3d20.6737777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b18cb52fd39b%3A0xd63d9302571db8ee!2sGuadalajara%2C%20Jal.!5e0!3m2!1ses!2smx!4v1"
+							width="100%"
+							height="100%"
+							style="border:0;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Ubicación de Estética Molvi en Guadalajara"
+						></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     FOOTER
+	     ════════════════════════════════════════════════════════ -->
+	<footer class="py-12 px-6 bg-cafe text-white/60">
+		<div class="max-w-5xl mx-auto text-center">
+			<p class="font-display text-3xl italic text-white/80 mb-2">Estética Molvi</p>
+			<p class="font-body text-sm">Guadalajara, Jalisco · +52 33 3457 9006</p>
+			<div class="stars text-sm mt-3">★★★★★ <span class="text-white/40">5.0 · 75 reseñas perfectas</span></div>
+			<div class="mt-6 pt-6 border-t border-white/10">
+				<p class="font-body text-xs text-white/30">&copy; {new Date().getFullYear()} Estética Molvi. Todos los derechos reservados.</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     WHATSAPP FLOTANTE
+	     ════════════════════════════════════════════════════════ -->
+	<a
+		href="https://wa.me/523334579006?text=Hola%2C%20quiero%20agendar%20en%20Est%C3%A9tica%20Molvi"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="whatsapp-float fixed bottom-6 right-6 z-50 w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg shadow-[#25D366]/30 hover:scale-110 transition-transform duration-300"
+		aria-label="Contactar por WhatsApp"
+	>
+		<svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+			<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+			<path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 0 0 .611.611l4.458-1.495A11.96 11.96 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.94 9.94 0 0 1-5.39-1.582l-.386-.232-2.65.888.888-2.65-.232-.386A9.94 9.94 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+		</svg>
+	</a>
+
+
+	<!-- ════════════════════════════════════════════════════════
+	     SCROLL ANIMATION SCRIPT
+	     ════════════════════════════════════════════════════════ -->
+	<script>
+		const observer = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('is-visible');
+					}
+				});
+			},
+			{ threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+		);
+
+		document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+	</script>
+
+</Layout>
